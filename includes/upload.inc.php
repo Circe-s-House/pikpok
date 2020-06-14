@@ -62,7 +62,7 @@
 				exit();
 			}
 		} else {
-			echo "You need to upload a propr file type!";
+			echo "You need to upload a proper file type!";
 			exit();
 		}
 	}

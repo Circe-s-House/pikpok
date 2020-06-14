@@ -26,6 +26,9 @@
 					</div>
 					<h1>&#10084;</h1>';
 				}
+				echo '<form action="includes/logout.inc.php" method="post">					
+					 <button type="submit" name="logout-dubmit">Logout</button>
+					 </form>';
 				?>
 			</div>
 			
