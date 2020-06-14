@@ -37,6 +37,9 @@
 							else if($_GET["error"] == "wrtype"){
 								echo '<p class="signuperror">You need to upload a proper file type!</p>';
 							}
+							else if($_GET["error"] == "emailtaken"){
+								echo '<p class="signuperror">E-mail is already in use!</p>';
+							}
 						}
 						else if($_GET["signup"] == "success"){
 							echo '<p class="signupsuccess">Signup successful!</p>';
