@@ -33,6 +33,10 @@
 					<a href = home.php><i class="fas fa-clock"></i></a>';
 				}
 				
+
+				echo '<form action="includes/logout.inc.php" method="post">					
+					 <button type="submit" name="logout-dubmit">Logout</button>
+					 </form>';
 				?>
 			</div>
 			

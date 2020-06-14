@@ -6,37 +6,68 @@
 		<div class="landing-text">
 		
 		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		<?php
-			require 'includes/dbh.inc.php';
-			if(isset($_SESSION['userId'])){
-				$userUID = $_SESSION['userId'];
-				$sql = "SELECT nameUsers, lnameUsers, bdate, genderUser, emailUsers FROM users WHERE idUsers= $userUID;";
-				$result = mysqli_query($conn, $sql);
-				$resultCheck = mysqli_num_rows($result);
-				if ($resultCheck>0){
-					while ($row = mysqli_fetch_assoc($result)){
-						echo 'Name: ';
-						echo $row['nameUsers'];
-						echo "\n";
-						echo 'Last Name: ';
-						echo $row['lnameUsers'];
-						echo "\n";
-						echo 'Birth Date: ';
-						echo $row['bdate'];
-						echo "\n";
-						echo 'Gender: ';
-						echo $row['genderUser'];
-						echo "\n";
-						echo 'Email: ';
-						echo $row['emailUsers'];
-						echo "\n";
+			<?php
+				require 'includes/dbh.inc.php';
+				if(isset($_SESSION['userId'])){
+					$userUID = $_SESSION['userId'];
+					$sql = "SELECT nameUsers, lnameUsers, bdate, genderUser, emailUsers, profPic FROM users WHERE idUsers= $userUID;";
+					$result = mysqli_query($conn, $sql);
+					$resultCheck = mysqli_num_rows($result);
+					if ($resultCheck>0){
+						while ($row = mysqli_fetch_assoc($result)){
+							echo '<a href = "#">
+							<div style="background-image: url(profpics/'.$row['profPic'].');"></div>
+							<img src="profpics/'.$row['profPic'].'"jpg"></img>
+							<p></p>
+							</a>';
+							echo 'Name: ';
+							echo $row['nameUsers'];
+							echo "\n";
+							echo 'Last Name: ';
+							echo $row['lnameUsers'];
+							echo "\n";
+							echo 'Birth Date: ';
+							echo $row['bdate'];
+							echo "\n";
+							echo 'Gender: ';
+							echo $row['genderUser'];
+							echo "\n";
+							echo 'Email: ';
+							echo $row['emailUsers'];
+							echo "\n";
+							echo '<form action="includes/changeprofpic.inc.php" method="post" enctype="multipart/form-data">
+								<input type="file" name="file"><br>
+								<button type="submit" name="submit"> Change Profile Picture </button>
+								</form>';
+						}
 					}
-				}			
-			}
-			else{
-				echo 'You are not logged in!';
-			}
-		?>
+					$sql = "SELECT * FROM photos WHERE idUsers= $userUID ORDER BY orderPhotos DESC";
+					$stmt = mysqli_stmt_init($conn);
+					if(!mysqli_stmt_prepare($stmt, $sql)){
+						echo 'SQL statement failed!';
+					} 
+					else {
+						mysqli_stmt_execute($stmt);
+						$result = mysqli_stmt_get_result($stmt);
+
+						while($row = mysqli_fetch_assoc($result)) {
+							echo '<a href = "#">
+							<div style="background-image: url(image/'.$row["imgFullnamePhotos"].');"></div>
+							<img src="image/'.$row["imgFullnamePhotos"].'"jpg"></img>
+							<h2>'.$row["descPhotos"].'</h2>
+							<p></p>
+							</a>';
+						}
+					}			
+				}
+				else{
+					echo 'You are not logged in!';
+					echo '<form method="get" action="index.php">
+                      <button type="submit" name="goback">Go Back</button>
+					  </form> ';
+				}
+			?>
+
 				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		</div>
 	</main>

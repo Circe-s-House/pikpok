@@ -28,12 +28,24 @@
 							else if($_GET["error"] == "usertaken"){
 								echo '<p class="signuperror">Username is already taken!</p>';
 							}
+							else if($_GET["error"] == "bigsize"){
+								echo '<p class="signuperror">Your photo profile picture file is too big!</p>';
+							}
+							else if($_GET["error"] == "uploaderr"){
+								echo '<p class="signuperror">There is a problem uploading your profile picture!</p>';
+							}
+							else if($_GET["error"] == "wrtype"){
+								echo '<p class="signuperror">You need to upload a proper file type!</p>';
+							}
+							else if($_GET["error"] == "emailtaken"){
+								echo '<p class="signuperror">E-mail is already in use!</p>';
+							}
 						}
 						else if($_GET["signup"] == "success"){
 							echo '<p class="signupsuccess">Signup successful!</p>';
 						}
 					?>
-					<form class="form-signup" action="includes/signup.inc.php" method="post">
+					<form class="form-signup" action="includes/signup.inc.php" method="post" enctype="multipart/form-data">
 						<input type="text" name="uid" placeholder="Username">
 						<input type="text" name="fname" placeholder="Name">
 						<input type="text" name="lname" placeholder="Surname">
@@ -47,6 +59,8 @@
 						<input type="radio" id="other" name="gender" value="other">
 						<label for="other">Other</label><br>
 						<input type="date" name="birthday" placeholder="Date of Birth"><br>
+						<h4>Photo Profile</h4>
+						<input type="file" name="file"><br>
 						<button type="submit" name="signup-submit">Signup</button>
 					</form>	
 				</div>
