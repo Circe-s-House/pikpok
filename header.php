@@ -20,12 +20,19 @@
 			<div class="top-nav">
 				<h1>Pik-Pok</h1>
 				<?php
-				if(stripos($_SERVER['REQUEST_URI'],'home.php')){
+				if(stripos($_SERVER['REQUEST_URI'],'home.php') || (stripos($_SERVER['REQUEST_URI'],'profile.php'))){
 				echo '<div class="inputsearch">
 					<input type="text" name="search" placeholder="Search..">
 					</div>
-					<h1>&#10084;</h1>';
+					<a href = home.likes.php><i class="fas fa-heart"></i></a>';
 				}
+				else if(stripos($_SERVER['REQUEST_URI'],'home.likes.php')){
+					echo '<div class="inputsearch">
+					<input type="text" name="search" placeholder="Search..">
+					</div>
+					<a href = home.php><i class="fas fa-clock"></i></a>';
+				}
+				
 				?>
 			</div>
 			
