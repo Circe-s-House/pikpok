@@ -57,14 +57,17 @@
 						$result = mysqli_stmt_get_result($stmt);
 
 						while($row = mysqli_fetch_assoc($result)) {
-							echo '<div class="halp">';
+							$_SESSION['photo'] = $row["imgFullnamePhotos"];
 							echo '<a href = "#">
 							<div style="background-image: url(image/'.$row["imgFullnamePhotos"].');"></div>
 							<img src="image/'.$row["imgFullnamePhotos"].'"jpg"></img>
 							<h2>'.$row["descPhotos"].'</h2>
 							<p></p>
 							</a>';
-							echo '</div>';
+							echo '<form action="includes/delpic.inc.php" method="post">	
+							<button type="submit" name="delpic">Delete photo</button>
+							</form>';
+							
 						}
 					}			
 				}
@@ -81,6 +84,7 @@
 	</main>
 	
 <script src="scripts/dropdownbutton.js"></script>	
+<script src="scripts/delpic.js"></script>	
 <?php
 	require "footer.php";
 ?>
