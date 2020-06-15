@@ -6,7 +6,11 @@
            <div class="container">
                <div class="landing-text">
                    <h1>Login</h1>
-				 
+					<?php
+						if(isset($_GET['signup'])){
+							echo '<p class="signupsuccess">Signup successful!</p>';
+						}
+					?>
                     <form class="form-login" action="includes/login.inc.php" method="post">
                        <input type="text" name="mailuid" placeholder="Username/E-mail..."><br><br>
                        <input type="password" name="pwd" placeholder="Password..."><br><br>

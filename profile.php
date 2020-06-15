@@ -38,7 +38,7 @@
 							echo $row['emailUsers'];
 							echo "\n";
 							echo '<div class="dropdown">
-								  <button onclick="myFunction()" class="dropbtn">Settings</button>
+								  <button type = "submit" onclick="myFunction()" class="dropbtn">Settings</button>
 								  <div id="myDropdown" class="dropdown-content">
 									<a href="changeprofpic.php">Change profile photo</a>
 									<a href="changename.php">Change name</a>

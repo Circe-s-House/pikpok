@@ -37,22 +37,22 @@
 							echo "muf success";
 						}
 
-						header("Location: ../profile.php?upload=success");
+						header("Location: ../changeprofpic.php?upload=success");
 					}
 
 				}
 				else {
-					echo "File size is too big!";
-					exit();
+					header("Location: ../changeprofpic.php?error=sizebig");
+					exit();	
 				}				
 			} 
 			else {
-				echo "You had an error!";
+				header("Location: ../changeprofpic.php?error=smth");
 				exit();
 			}
 		} 
 		else {
-			echo "You need to upload a proper file type!";
+			header("Location: ../changeprofpic.php?error=wrtype");
 			exit();
 		}
 	}
