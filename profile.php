@@ -3,7 +3,7 @@
 ?>
 
 	<main>
-		<div class="landing-text">
+		<div class="grid-container">
 		
 		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			<?php
@@ -15,11 +15,13 @@
 					$resultCheck = mysqli_num_rows($result);
 					if ($resultCheck>0){
 						while ($row = mysqli_fetch_assoc($result)){
+							echo '<div class="help">';
 							echo '<a href = "#">
 							<div style="background-image: url(profpics/'.$row['profPic'].');"></div>
 							<img src="profpics/'.$row['profPic'].'"jpg"></img>
 							<p></p>
 							</a>';
+							echo '</div>';
 							echo 'Name: ';
 							echo $row['nameUsers'];
 							echo "\n";
@@ -35,10 +37,14 @@
 							echo 'Email: ';
 							echo $row['emailUsers'];
 							echo "\n";
-							echo '<form action="includes/changeprofpic.inc.php" method="post" enctype="multipart/form-data">
-								<input type="file" name="file"><br>
-								<button type="submit" name="submit"> Change Profile Picture </button>
-								</form>';
+							echo '<div class="dropdown">
+								  <button onclick="myFunction()" class="dropbtn">Settings</button>
+								  <div id="myDropdown" class="dropdown-content">
+									<a href="changeprofpic.php">Change profile photo</a>
+									<a href="changename.php">Change name</a>
+									<a href="changepwd.php">Change your password</a>
+								  </div>
+								  </div>';	
 						}
 					}
 					$sql = "SELECT * FROM photos WHERE idUsers= $userUID ORDER BY orderPhotos DESC";
@@ -51,12 +57,14 @@
 						$result = mysqli_stmt_get_result($stmt);
 
 						while($row = mysqli_fetch_assoc($result)) {
+							echo '<div class="halp">';
 							echo '<a href = "#">
 							<div style="background-image: url(image/'.$row["imgFullnamePhotos"].');"></div>
 							<img src="image/'.$row["imgFullnamePhotos"].'"jpg"></img>
 							<h2>'.$row["descPhotos"].'</h2>
 							<p></p>
 							</a>';
+							echo '</div>';
 						}
 					}			
 				}
@@ -72,7 +80,7 @@
 		</div>
 	</main>
 	
-	
+<script src="scripts/dropdownbutton.js"></script>	
 <?php
 	require "footer.php";
 ?>
