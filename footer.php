@@ -1,13 +1,17 @@
 	<footer class="copyright">
 		<?php
-			if(stripos($_SERVER['REQUEST_URI'],'home.php')){
+			require 'includes/dbh.inc.php';
+			if(isset($_SESSION['userId']) && (stripos($_SERVER['REQUEST_URI'],'home.php') || (stripos($_SERVER['REQUEST_URI'],'profile.php')))){
 				echo '<form method="get" action="upload.php">
 						<button id="add" type="submit">
 						<i class="fas fa-plus"></i>
-						</button></form>
-						<button id="up">
-							<i class="fas fa-chevron-up"></i>
-						</button>';
+						</button>
+						</form>';
+			}
+			if(stripos($_SERVER['REQUEST_URI'],'home.php') || (stripos($_SERVER['REQUEST_URI'],'profile.php'))){
+				echo '<button id="up">
+						<i class="fas fa-chevron-up"></i>
+					</button>';
 				}
 		?>
 		

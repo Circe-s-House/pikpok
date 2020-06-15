@@ -18,8 +18,9 @@
 	<body>
 		<header>
 			<div class="top-nav">
-				<h1>Pik-Pok</h1>
+				<a href = home.php><h1>Pik-Pok</h1></a>
 				<?php
+				require 'includes/dbh.inc.php';
 				if(stripos($_SERVER['REQUEST_URI'],'home.php') || (stripos($_SERVER['REQUEST_URI'],'profile.php'))){
 				echo '<div class="inputsearch">
 					<input type="text" name="search" placeholder="Search..">
@@ -32,11 +33,33 @@
 					</div>
 					<a href = home.php><i class="fas fa-clock"></i></a>';
 				}
-				
-
-				echo '<form action="includes/logout.inc.php" method="post">					
-					 <button type="submit" name="logout-dubmit">Logout</button>
-					 </form>';
+				if(isset($_SESSION['userId'])){
+					
+					$userUID = $_SESSION['userId'];
+					$sql = "SELECT profPic FROM users WHERE idUsers= $userUID;";
+					$result = mysqli_query($conn, $sql);
+					$resultCheck = mysqli_num_rows($result);
+					if ($resultCheck>0){
+						while ($row = mysqli_fetch_assoc($result)){
+							echo '<div class="help">';
+							echo '<a href = profile.php>
+							<div style="background-image: url(profpics/'.$row['profPic'].');"></div>
+							<img src="profpics/'.$row['profPic'].'"jpg"></img>
+							<p></p>
+							</a>';
+							echo '</div>';
+						}
+					}
+					else{
+						echo '<a href = signup.php><i class="fas fa-user"></i></a>';
+					}
+					echo '<form action="includes/logout.inc.php" method="post">					
+							<button type="submit" name="logout-dubmit">Logout</button>
+							</form>';
+				}
+				else{
+					echo '<a href = signup.php><i class="fas fa-user"></i></a>';
+				}
 				?>
 			</div>
 			

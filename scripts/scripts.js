@@ -1,3 +1,4 @@
+
 $(document).ready(function (){
     const up = document.querySelector("#up");
 

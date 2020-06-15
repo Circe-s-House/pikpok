@@ -57,7 +57,7 @@
 
 							while($row = mysqli_fetch_assoc($result)) {
 								echo '<a href = "#">
-									<div style="background-image: url(image/'.$row["imgFullnamePhotos"].');"></div>
+									<div class="myimage" style="background-image: url(image/'.$row["imgFullnamePhotos"].');"></div>
 									<img src="image/'.$row["imgFullnamePhotos"].'"jpg"></img>
 									<h2>'.$row["descPhotos"].'</h2>
 									<p></p>
@@ -65,6 +65,7 @@
 							}
 						}	
 					?>
+					<br><br><br><br><br>
 				</div>
 			</div>
 		</section>		
