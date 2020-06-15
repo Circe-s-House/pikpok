@@ -7,7 +7,7 @@
 				<div class="section-heading">
 					<h1>Sign-up</h1>
 				</div>
-				<div class="signupp">
+				<div class="signup">
 					<?php
 						if(isset($_GET['error'])){
 							if($_GET["error"] == "emptyfields"){
