@@ -145,11 +145,6 @@ a{
     color: wheat;
 }
 
-.container img{
-    width: 5rem;
-    height: 5rem;
-    border-radius: 4px;
-}
 
 /*end reusable*/
 
@@ -158,12 +153,14 @@ header{
     height: 56px;
     width: 100%;
     text-align: center;
-    /*background-color: #145753;*/
     background: linear-gradient(to top, #66fcf1, #145753);
     padding: 1rem;
     position: fixed;
     margin-bottom: 56px;
+	z-index: 1;
 }
+
+
 
 header h1{
 	font-size: 3.5rem;
@@ -192,7 +189,7 @@ header h1{
 .top-nav button{
 	width: 15rem;
 	height: 1rem;
-	text-align: inherit;
+	vertical-align: middle;
 }
 
 .inputsearch input[type="text"]{
@@ -255,11 +252,12 @@ header h1{
 .section-heading img{
 	height: 50%;
 	width: 50%;
-	
+	border: 2px solid #45a29e;
+    border-radius: 4px;
 }
 
 .section-heading h2{
-	font-size: 5rem;
+	font-size: 4rem;
 	color: #c5c6c7;
 	underline: none;
 	margin-bottom: 80px;
