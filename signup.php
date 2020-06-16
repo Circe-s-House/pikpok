@@ -41,9 +41,6 @@
 								echo '<p class="signuperror">E-mail is already in use!</p>';
 							}
 						}
-						else if($_GET["signup"] == "success"){
-							echo '<p class="signupsuccess">Signup successful!</p>';
-						}
 					?>
 					<form class="form-signup" action="includes/signup.inc.php" method="post" enctype="multipart/form-data">
 						<input type="text" name="uid" placeholder="Username">

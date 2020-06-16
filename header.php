@@ -18,7 +18,7 @@
 	<body>
 		<header>
 			<div class="top-nav">
-				<a href = home.php><h1>Pik-Pok</h1></a>
+				<a href = home.php><h1>Social Hub</h1></a>
 				<?php
 				require 'includes/dbh.inc.php';
 				if(stripos($_SERVER['REQUEST_URI'],'home.php') || (stripos($_SERVER['REQUEST_URI'],'profile.php'))){

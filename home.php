@@ -47,7 +47,7 @@
 					<?php
 						include_once 'includes/dbh.inc.php';
 
-						$sql = "SELECT * FROM photos ORDER BY orderPhotos DESC";
+						$sql = "SELECT * FROM photos";
 						$stmt = mysqli_stmt_init($conn);
 						if(!mysqli_stmt_prepare($stmt, $sql)){
 							echo 'SQL statement failed!';
@@ -62,6 +62,15 @@
 									<h2>'.$row["descPhotos"].'</h2>
 									<p></p>
 									</a>';
+
+									
+									echo '<p>'.$row["comment"].'</p>';
+									
+									
+								echo '<form action="includes/upcomment.inc.php" method="post">	
+									 <input type="text" name="commid" placeholder="Comment..."><br><br>
+									 <button type="submit" value = "'.$row["idPhotos"].'" name="commbutton">Comment</button>
+									 </form>';
 							}
 						}	
 					?>

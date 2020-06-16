@@ -2,7 +2,7 @@
 	require "header.php";
 ?>
 <?php
-	
+	//prepei na valoume hmeromhnia kai wra
 	if(isset($_SESSION['userId'])){
 		 echo '<section>
            <div class="container">

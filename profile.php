@@ -65,7 +65,7 @@
 							<p></p>
 							</a>';
 							echo '<form action="includes/delpic.inc.php" method="post">	
-							<button type="submit" name="delpic">Delete photo</button>
+							<button type="submit" value = "'.$row["idPhotos"].'" name="delpic">Delete photo</button>
 							</form>';
 							
 						}
