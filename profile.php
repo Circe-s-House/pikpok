@@ -8,6 +8,7 @@
 		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			<?php
 				require 'includes/dbh.inc.php';
+				
 				if(isset($_SESSION['userId'])){
 					$userUID = $_SESSION['userId'];
 					$sql = "SELECT nameUsers, lnameUsers, bdate, genderUser, emailUsers, profPic FROM users WHERE idUsers= $userUID;";

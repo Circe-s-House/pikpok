@@ -29,21 +29,6 @@
 
 /*drop down button*/
 
-
-.dropbtn {
-  background-color: #3498DB;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
-}
-
-
 .dropdown {
   position: relative;
   display: inline-block;
@@ -81,7 +66,10 @@
     max-width: 120rem;
     margin: 0 auto;
     top: 7rem;
-    position: relative; 
+    position: relative;
+	display:flex;
+	flex-direction: column;
+	text-align: center;
 }
 
 .section-heading{
@@ -99,13 +87,12 @@
 
 input[type=text], [type=password]{
     color: #c5c6c7;
-    width: 90%;
+    width: 50%;
     padding: 12px 12px;
     margin: 8px 0;
     background-color: #1F2833;
     border: none;
     border-bottom: 2px solid #45a29e;
-    flex-direction: column;
 }
 
 input[type=checkbox]{
@@ -175,26 +162,27 @@ header h1{
 }
 
 .top-nav img{
-	heigt: 54px;
-	width: 54px;
-	border-radius: 4px;
+	heigt: 5rem;
+	width: 5rem;
+	border-radius: 100%;
 	border: 2px solid #1F2833;
 }
 
 .top-nav a{
 	font-size: 3rem;
+	text-decoration: none;
 	color: #1F2833;
 }
 
 .top-nav button{
 	width: 15rem;
-	height: 1rem;
+	height: 4rem;
 	vertical-align: middle;
 }
 
 .inputsearch input[type="text"]{
     width: 15rem;
-    height: 1rem;
+    height: 4rem;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 	border-radius: 4px;
@@ -206,15 +194,26 @@ header h1{
 
 /*end header*/
 
+/*index*/
+.login input[type=text], [type=password]{
+	width: 30rem;
+}
+
+.login button{
+	width: 30rem;
+}
+
+.login a{
+	color: #c5c6c7;
+}
 
 .landing-text{
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     height: 100vh;
     box-shadow: 2rem 2rem blacks;
+	padding-top: 10rem;
 }
 
 .landing-text h1{
@@ -263,6 +262,21 @@ header h1{
 	margin-bottom: 80px;
 }
 
+
+/*signup*/
+.signup{
+	width: 100%;
+	display:flex;
+	flex-direction: column;
+	justify-content:center;
+	align-items:center;
+
+}
+
+.signup input[type=text], [type=password]{
+	width: 50%;
+	
+}
 
 /*footer*/
 
