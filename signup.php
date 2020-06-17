@@ -48,16 +48,17 @@
 						<input type="text" name="lname" placeholder="Surname">
 						<input type="text" name="mail" placeholder="E-mail">
 						<input type="password" name="pwd" placeholder="Password">
-						<input type="password" name="pwd-repeat" placeholder="Repeat password">	<br>					
+						<input type="password" name="pwd-repeat" placeholder="Repeat password">	<br><br>					
 						<input type="radio" id="male" name="gender" value="male">
-						<label for="male">Male</label><br>
+						<label for="male">Male</label>
 						<input type="radio" id="female" name="gender" value="female">
-						<label for="female">Female</label><br>
+						<label for="female">Female</label>
 						<input type="radio" id="other" name="gender" value="other">
-						<label for="other">Other</label><br>
+						<label for="other">Other</label><br><br>
+						<label for="birthday">Birth date: </label>
 						<input type="date" name="birthday" placeholder="Date of Birth"><br>
-						<h4>Photo Profile</h4>
-						<input type="file" name="file"><br>
+						<label for="photo">Profile photo: </label>
+						<input type="file" id="photo" name="file" placeholder="Photo profile"><br>
 						<button type="submit" name="signup-submit">Signup</button>
 					</form>	
 				</div>
