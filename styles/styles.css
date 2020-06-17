@@ -36,10 +36,10 @@
 
 .dropdown-content {
   display: none;
-  position: absolute;
+  position: reative;
   background-color: #45a29e;
   opacity:0.8;
-  min-width: 160px;
+  min-width: 160px; 
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   border-radius: 4px;
@@ -144,6 +144,7 @@ header{
     /*padding: 1rem;*/
     position: fixed;
     /*margin-bottom: 56px;*/
+	justify-content: center;
 	z-index: 1;
 }
 
@@ -195,7 +196,11 @@ header h1{
 /*end header*/
 
 /*index*/
-.login input[type=text], [type=password]{
+.login input[type=text]{
+	width: 30rem;
+}
+
+.login input[type=password]{
 	width: 30rem;
 }
 
@@ -227,16 +232,6 @@ header h1{
 }
 
 
-.log-in{
-    position: fixed;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    padding: 0%;
-}
-
-
 
 /*photo*/
 
@@ -249,7 +244,7 @@ header h1{
 }
 
 .section-heading img{
-	height: 50%;
+	height: auto;
 	width: 50%;
 	border: 2px solid #45a29e;
     border-radius: 4px;
@@ -261,6 +256,85 @@ header h1{
 	underline: none;
 	margin-bottom: 80px;
 }
+
+/*profile*/
+.container-profile{
+	min-height: 100%;
+    width: 90%;
+    max-width: 120rem;
+    margin: 0 auto;
+    top: 7rem;
+    position: relative;
+	display:flex;
+	flex-direction: row;
+}
+aside{
+	
+	width: 30%;
+	height: 100rem;
+	padding-right: 15px;
+	margin-right: 15px;
+	/*float: left;*/
+	border: 2px solid #45a29e;
+    border-radius: 4px;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+}
+
+aside img{
+	margin: 5%;
+	width: 90%;
+}
+
+aside p{
+	margin: 5%;
+	width: 90%;
+	color: C5C6C7;
+	font-weight: 600;
+	font-size: 2rem;
+}
+
+aside button[type=submit]{
+	width: 90%;
+	margin-left: 5%;
+}
+
+
+
+.photos-general{
+	width: 100%;
+    height: 235px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	text-align: center;
+	padding-bottom: 5rem;
+}
+
+.photos-general img{
+	height: auto;
+	width: 60%;
+	border: 2px solid #45a29e;
+    border-radius: 4px;
+}
+.photos-general.under-photo{
+	display: flex;
+	flex-direction: inline;
+	width: 50rem;
+}
+/*
+.photos-general.under-photo button[type=submit]{
+	width: 10rem;
+}
+
+.photos-general.under-photo p{
+	width: 40rem;
+}*/
+
+
+
+/*end profile*/
 
 
 /*signup*/

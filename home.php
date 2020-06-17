@@ -42,7 +42,8 @@
 		<section>
 			<div class="section-heading">
 			<br><br><br><br><br><br><br><br><br><br><br>
-				<h1>Gallery</h1>
+				<h1>SocialHub</h1>
+				<h2>or SocialPub? Either way grab a <i class="fas fa-beer"></i> and enjoy!</h2>
 				<div class="container">
 					<?php
 						include_once 'includes/dbh.inc.php';
