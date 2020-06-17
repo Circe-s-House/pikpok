@@ -23,22 +23,23 @@ if (isset($_POST['commbutton'])){
 			$rowCount = mysqli_num_rows($result);
 			$setCommentOrder = $rowCount + 1;
 		
-			$sql = "INSERT INTO comments (idUsers, idPhotos, comment, ordercomm) VALUES (?, ?, ?, ?)";
+			$sql = "INSERT INTO comments (idUsers, idPhoto, comment, ordercomm) VALUES (?, ?, ?, ?)";
 			$stmt = mysqli_stmt_init($conn);
 			if (!mysqli_stmt_prepare($stmt, $sql)){
 				header("Location: ../home.php?error=sqlerror");
 				exit();
 			}
 			else{					
-				mysqli_stmt_bind_param($stmt, "sss", $_SESSION['userId'], $photoid, $comm, $setCommentOrder);
+				mysqli_stmt_bind_param($stmt, "ssss", $_SESSION['userId'], $photoid, $comm, $setCommentOrder);
 				mysqli_stmt_execute($stmt);
 							
-				header("Location: ../home.php?namechange=success");
+				header("Location: ../home.php?comment=success");
 				mysqli_stmt_close($stmt);
 				mysqli_close($conn);
 				exit();	
 			}					
-	}
+		}
 				
+	}
 }
 

@@ -39,7 +39,7 @@
 						$sql = "INSERT INTO photos (idUsers, descPhotos, imgFullnamePhotos, orderPhotos) VALUES (?, ?, ?, ?);";
 						if(!mysqli_stmt_prepare($stmt, $sql)){
 							echo "SQL  statement failed!";
-						} else{ //καπου εδω προσθετουμε idUsers kai duo s katw kai duo ? panwkai likesPhotos!!!!!!!!!!
+						} else{ 
 							session_start();
 							mysqli_stmt_bind_param($stmt, "ssss", $_SESSION['userId'], $imageDesc, $imageFullName, $setImageOrder);
 							mysqli_stmt_execute($stmt);

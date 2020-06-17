@@ -38,11 +38,14 @@
 								  </div>';	
 						}
 					}
+
 					?>
 					</aside>
 					<div class="photos-general">
 					<?php
-					$sql = "SELECT * FROM photos WHERE idUsers= $userUID ORDER BY orderPhotos DESC";
+				
+					$sql = "SELECT photos.*, comments.* FROM photos LEFT JOIN comments ON photos.idPhotos = comments.idPhoto WHERE photos.idUsers= $userUID ORDER BY orderPhotos";
+
 					$stmt = mysqli_stmt_init($conn);
 					if(!mysqli_stmt_prepare($stmt, $sql)){
 						echo 'SQL statement failed!';
@@ -50,9 +53,10 @@
 					else {
 						mysqli_stmt_execute($stmt);
 						$result = mysqli_stmt_get_result($stmt);
-
+						$tmpphoto = "";
 						while($row = mysqli_fetch_assoc($result)) {
 							$_SESSION['photo'] = $row["imgFullnamePhotos"];
+
 							echo '<div class="under-photo">
 								<div style="background-image: url(image/'.$row["imgFullnamePhotos"].');"></div>
 								<img src="image/'.$row["imgFullnamePhotos"].'"jpg"></img>
@@ -61,6 +65,29 @@
 								<button type="submit" value = "'.$row["idPhotos"].'" name="delpic">Delete photo</button>
 								</form>
 								</div>';
+
+							if($tmpphoto !== $row["imgFullnamePhotos"]){
+									echo '<a href = "#">
+										<div class="myimage" style="background-image: url(image/'.$row["imgFullnamePhotos"].');"></div>
+										<img src="image/'.$row["imgFullnamePhotos"].'"jpg"></img>
+										<h2>'.$row["descPhotos"].'</h2>
+										<p></p>
+										</a>';
+									echo '<form action="includes/delpic.inc.php" method="post">	
+									<button type="submit" value = "'.$row["idPhotos"].'" name="delpic">Delete photo</button>
+									</form>';	
+									echo '<form action="includes/upcomment.inc.php" method="post">	
+									 <input type="text" name="commid" placeholder="Comment..."><br><br>
+									 <button type="submit" value = "'.$row["idPhotos"].'" name="commbutton">Comment</button>
+									 </form>';
+								}
+
+									
+									echo '<p>'.$row["comment"].'</p>';
+
+								$tmpphoto = $row["imgFullnamePhotos"];
+							
+
 							
 						}
 					}
