@@ -63,6 +63,9 @@
 										<h2>'.$row["descPhotos"].'</h2>
 										<p></p>
 										</a>';
+										echo '<form action="includes/likes.inc.php" method="post">	
+										 <button type="submit" value = "'.$row["idPhotos"].'" name="like">LIKE</button>
+										 </form>';
 										
 										echo '<form action="includes/upcomment.inc.php" method="post">	
 										 <input type="text" name="commid" placeholder="Comment..."><br><br>

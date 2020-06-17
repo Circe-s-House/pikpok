@@ -48,7 +48,7 @@
 								  </div>';	
 						}
 					}
-					$sql = "SELECT photos.*, comments.* FROM photos LEFT JOIN comments ON photos.idPhotos = comments.idPhoto WHERE idUsers= $userUID ORDER BY orderPhotos";
+					$sql = "SELECT photos.*, comments.* FROM photos LEFT JOIN comments ON photos.idPhotos = comments.idPhoto WHERE photos.idUsers= $userUID ORDER BY orderPhotos";
 					$stmt = mysqli_stmt_init($conn);
 					if(!mysqli_stmt_prepare($stmt, $sql)){
 						echo 'SQL statement failed!';
