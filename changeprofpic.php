@@ -1,7 +1,9 @@
 <?php
 	require "header.php";
 ?>
-
+<?php
+	if(isset($_SESSION['userId'])){
+?>
        <section>
            <div class="container">
                <div class="landing-text">
@@ -33,7 +35,13 @@
                </div>
            </div>
        </section>
-
+<?php
+	}
+	else{
+		header("Location: index.php");
+		exit();	
+	}
+?>	
 <?php
 	require "footer.php";
 ?>

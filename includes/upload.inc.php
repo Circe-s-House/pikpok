@@ -24,35 +24,25 @@
 					$fileDestination = ("../image/" . $imageFullName);
 
 					include_once "dbh.inc.php";
+					date_default_timezone_set('Europe/Athens');
+					$today = date("Y-m-d H:i:s"); 
 
-					$sql = "SELECT * FROM photos;";
+					$sql = "INSERT INTO photos (idUsers, descPhotos, imgFullnamePhotos, date) VALUES (?, ?, ?, ?);";
 					$stmt = mysqli_stmt_init($conn);
 					if(!mysqli_stmt_prepare($stmt, $sql)){
-						echo "SQL statement failed!";
-					} else {
+						echo "SQL  statement failed!";
+					} else{ 
+						session_start();
+						mysqli_stmt_bind_param($stmt, "ssss", $_SESSION['userId'], $imageDesc, $imageFullName, $today);
 						mysqli_stmt_execute($stmt);
-						$result = mysqli_stmt_get_result($stmt);
-						$rowCount = mysqli_num_rows($result);
-						$setImageOrder = $rowCount + 1;
 
-
-						$sql = "INSERT INTO photos (idUsers, descPhotos, imgFullnamePhotos, orderPhotos) VALUES (?, ?, ?, ?);";
-						if(!mysqli_stmt_prepare($stmt, $sql)){
-							echo "SQL  statement failed!";
-						} else{ 
-							session_start();
-							mysqli_stmt_bind_param($stmt, "ssss", $_SESSION['userId'], $imageDesc, $imageFullName, $setImageOrder);
-							mysqli_stmt_execute($stmt);
-
-							if(move_uploaded_file($fileTempName, $fileDestination)){
-								echo "muf success";
-							}
-
-							header("Location: ../home.php?upload=success");
+						if(move_uploaded_file($fileTempName, $fileDestination)){
+							echo "muf success";
 						}
 
+						header("Location: ../home.php?upload=success");
 					}
-				
+					
 				} else {
 					echo "File size is too big!";
 					exit();

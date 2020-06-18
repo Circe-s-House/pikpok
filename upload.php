@@ -17,6 +17,10 @@
            </div>
        </section>';
 	}
+	else{
+		header("Location: index.php");
+		exit();	
+	}
        
 ?>
 <?php
