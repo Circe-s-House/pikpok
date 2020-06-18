@@ -21,8 +21,8 @@
 				<a href = home.php><h1>Social Hub</h1></a>
 				<?php
 				require 'includes/dbh.inc.php';
-				if(stripos($_SERVER['REQUEST_URI'],'home.php') || (stripos($_SERVER['REQUEST_URI'],'profile.php'))){
-				echo '<div class="inputsearch">
+				if(stripos($_SERVER['REQUEST_URI'],'home.php')){
+					echo '<div class="inputsearch">
 					<input type="text" name="search" placeholder="Search..">
 					</div>
 					<a href = home.likes.php><i class="fas fa-heart"></i></a>';
@@ -33,6 +33,19 @@
 					</div>
 					<a href = home.php><i class="fas fa-clock"></i></a>';
 				}
+				else if(stripos($_SERVER['REQUEST_URI'],'profile.php')){
+					echo '<div class="inputsearch">
+					<input type="text" name="search" placeholder="Search..">
+					</div>
+					<a href = profile.likes.php><i class="fas fa-heart"></i></a>';
+				}
+				else if(stripos($_SERVER['REQUEST_URI'],'profile.likes.php')){
+					echo '<div class="inputsearch">
+					<input type="text" name="search" placeholder="Search..">
+					</div>
+					<a href = profile.php><i class="fas fa-clock"></i></a>';
+				}
+				
 				if(isset($_SESSION['userId'])){
 					
 					$userUID = $_SESSION['userId'];
@@ -51,14 +64,14 @@
 						}
 					}
 					else{
-						echo '<a href = signup.php><i class="fas fa-user"></i></a>';
+						echo '<a href = profile.php><i class="fas fa-user"></i></a>';
 					}
 					echo '<form action="includes/logout.inc.php" method="post">					
 							<button type="submit" name="logout-dubmit">Logout</button>
 							</form>';
-				}
+				} 
 				else{
-					echo '<a href = signup.php><i class="fas fa-user"></i></a>';
+					echo '<a href = index.php><i class="fas fa-user"></i></a>';
 				}
 				?>
 			</div>

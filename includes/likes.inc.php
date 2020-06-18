@@ -1,13 +1,18 @@
 <?php
 
-	if(isset($_POST['like'])){
+	if(isset($_POST['like'])||isset($_POST['likep'])){
 
+		if(isset($_POST['like'])){
+			$likes = $_POST['like'];
+		}
+		else{
+			$likes = $_POST['likep'];
+		}
 		require 'dbh.inc.php';
 		session_start();
-		$likes = $_POST['like'];
 		
 		
-		$sql = "SELECT * FROM likes WHERE idUsers = ".$_SESSION['userId'].";";
+		$sql = "SELECT * FROM likes WHERE idUsers = ".$_SESSION['userId']." AND idPhoto = $likes ;";
 		$stmt = mysqli_stmt_init($conn);
 		if(!mysqli_stmt_prepare($stmt, $sql)){
 			echo "SQL  statement failed!";
@@ -54,8 +59,14 @@
 						mysqli_stmt_bind_param($stmt, "s", $likesnum);
 						mysqli_stmt_execute($stmt);
 					
-						header("Location: ../home.php?like=success");
-						exit();	
+						if(isset($_POST['like'])){
+							header("Location: ../home.php?like=success");
+							exit();	
+						}
+						else{
+							header("Location: ../profile.php?like=success");
+							exit();	
+						}						
 					}
 				}
 			}
@@ -94,9 +105,17 @@
 					else{ 
 						mysqli_stmt_bind_param($stmt, "s", $likesnum);
 						mysqli_stmt_execute($stmt);
-					
-						header("Location: ../home.php?likerem=success");
-						exit();	
+						
+						
+						if(isset($_POST['like'])){
+							header("Location: ../home.php?likerem=success");
+							exit();	
+						}
+						else{
+							header("Location: ../profile.php?likerem=success");
+							exit();	
+						} 
+
 					}
 				}
 			}	

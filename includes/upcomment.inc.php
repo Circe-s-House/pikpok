@@ -7,39 +7,23 @@ if (isset($_POST['commbutton'])){
 	$photoid = $_POST['commbutton'];
 	$comm = $_POST['commid'];
 	
-	$sql = "SELECT * FROM comments;";
+	date_default_timezone_set('Europe/Athens');
+	$today = date("Y-m-d H:i:s"); 
+	
+	$sql = "INSERT INTO comments (idUsers, idPhoto, comment, commdate) VALUES (?, ?, ?, ?)";
 	$stmt = mysqli_stmt_init($conn);
-	if(!mysqli_stmt_prepare($stmt, $sql)){
-		echo "SQL statement failed!";
-	} 
-	else {
-		if (empty($comm)){
-			header("Location: ../home.php?error=emptyfields");
-			exit();
-		}
-		else{	
-			mysqli_stmt_execute($stmt);
-			$result = mysqli_stmt_get_result($stmt);
-			$rowCount = mysqli_num_rows($result);
-			$setCommentOrder = $rowCount + 1;
-		
-			$sql = "INSERT INTO comments (idUsers, idPhoto, comment, ordercomm) VALUES (?, ?, ?, ?)";
-			$stmt = mysqli_stmt_init($conn);
-			if (!mysqli_stmt_prepare($stmt, $sql)){
-				header("Location: ../home.php?error=sqlerror");
-				exit();
-			}
-			else{					
-				mysqli_stmt_bind_param($stmt, "ssss", $_SESSION['userId'], $photoid, $comm, $setCommentOrder);
-				mysqli_stmt_execute($stmt);
-							
-				header("Location: ../home.php?comment=success");
-				mysqli_stmt_close($stmt);
-				mysqli_close($conn);
-				exit();	
-			}					
-		}
-				
+	if (!mysqli_stmt_prepare($stmt, $sql)){
+		header("Location: ../home.php?error=sqlerror");
+		exit();
 	}
+	else{					
+		mysqli_stmt_bind_param($stmt, "ssss", $_SESSION['userId'], $photoid, $comm, $today);
+		mysqli_stmt_execute($stmt);
+					
+		header("Location: ../home.php?comment=success");
+		mysqli_stmt_close($stmt);
+		mysqli_close($conn);
+		exit();	
+	}					
 }
 
