@@ -56,7 +56,7 @@
 						$tmpphoto = "";
 						while($row = mysqli_fetch_assoc($result)) {
 							$_SESSION['photo'] = $row["imgFullnamePhotos"];
-
+							/*
 							echo '<div class="under-photo">
 								<div style="background-image: url(image/'.$row["imgFullnamePhotos"].');"></div>
 								<img src="image/'.$row["imgFullnamePhotos"].'"jpg"></img>
@@ -65,7 +65,7 @@
 								<button type="submit" value = "'.$row["idPhotos"].'" name="delpic">Delete photo</button>
 								</form>
 								</div>';
-
+*/
 							if($tmpphoto !== $row["imgFullnamePhotos"]){
 									echo '<a href = "#">
 										<div class="myimage" style="background-image: url(image/'.$row["imgFullnamePhotos"].');"></div>
