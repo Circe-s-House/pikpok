@@ -163,8 +163,8 @@ header h1{
 }
 
 .top-nav img{
-	heigt: 5rem;
-	width: 5rem;
+	heigt: 4rem;
+	width: 4rem;
 	border-radius: 100%;
 	border: 2px solid #1F2833;
 }
@@ -259,7 +259,7 @@ header h1{
 
 /*profile*/
 .container-profile{
-	min-height: 100%;
+	min-height: 90%;
     width: 90%;
     max-width: 120rem;
     margin: 0 auto;
@@ -267,11 +267,14 @@ header h1{
     position: relative;
 	display:flex;
 	flex-direction: row;
+	margin-bottom: 10rem;
+	
 }
+
 aside{
 	
 	width: 30%;
-	height: 100rem;
+	height: 78vh;
 	padding-right: 15px;
 	margin-right: 15px;
 	/*float: left;*/
@@ -321,16 +324,15 @@ aside button[type=submit]{
 .photos-general.under-photo{
 	display: flex;
 	flex-direction: inline;
-	width: 50rem;
-}
-/*
-.photos-general.under-photo button[type=submit]{
-	width: 10rem;
+	width: 50%;
+	background-color: #eee;
+	margin-bottom:10rem;
 }
 
-.photos-general.under-photo p{
-	width: 40rem;
-}*/
+.photos-general.under-photo.comments-photo{
+	border: 2px double #eee;
+} 
+
 
 
 

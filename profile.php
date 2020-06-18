@@ -42,6 +42,7 @@
 					?>
 					</aside>
 					<div class="photos-general">
+			
 					<?php
 				
 					$sql = "SELECT photos.*, comments.* FROM photos LEFT JOIN comments ON photos.idPhotos = comments.idPhoto WHERE photos.idUsers= $userUID ORDER BY orderPhotos";
@@ -66,10 +67,13 @@
 										  <form action="includes/delpic.inc.php" method="post">	
 								          <button type="submit" value = "'.$row["idPhotos"].'" name="delpic">Delete photo</button>
 										  </form>
+										  <div class="comment-photo">
 										  <form action="includes/upcomment.inc.php" method="post">	
 										  <input type="text" name="commid" placeholder="Comment..."><br><br>
 									      <button type="submit" value = "'.$row["idPhotos"].'" name="commbutton">Comment</button>
-									      </form>';	
+									      </form>
+										  </div>
+										  </div>';	
 								}
 								echo '<p>'.$row["comment"].'</p>';
 								$tmpphoto = $row["imgFullnamePhotos"];									
