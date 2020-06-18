@@ -56,39 +56,22 @@
 						$tmpphoto = "";
 						while($row = mysqli_fetch_assoc($result)) {
 							$_SESSION['photo'] = $row["imgFullnamePhotos"];
-
-							echo '<div class="under-photo">
-								<div style="background-image: url(image/'.$row["imgFullnamePhotos"].');"></div>
-								<img src="image/'.$row["imgFullnamePhotos"].'"jpg"></img>
-								<p>'.$row["descPhotos"].'</p>
-								<form action="includes/delpic.inc.php" method="post">	
-								<button type="submit" value = "'.$row["idPhotos"].'" name="delpic">Delete photo</button>
-								</form>
-								</div>';
-
+			
 							if($tmpphoto !== $row["imgFullnamePhotos"]){
-									echo '<a href = "#">
-										<div class="myimage" style="background-image: url(image/'.$row["imgFullnamePhotos"].');"></div>
-										<img src="image/'.$row["imgFullnamePhotos"].'"jpg"></img>
-										<h2>'.$row["descPhotos"].'</h2>
-										<p></p>
-										</a>';
-									echo '<form action="includes/delpic.inc.php" method="post">	
-									<button type="submit" value = "'.$row["idPhotos"].'" name="delpic">Delete photo</button>
-									</form>';	
-									echo '<form action="includes/upcomment.inc.php" method="post">	
-									 <input type="text" name="commid" placeholder="Comment..."><br><br>
-									 <button type="submit" value = "'.$row["idPhotos"].'" name="commbutton">Comment</button>
-									 </form>';
+									echo '<div class="under-photo">
+										  <div style="background-image: url(image/'.$row["imgFullnamePhotos"].');"></div>
+										  <img src="image/'.$row["imgFullnamePhotos"].'"jpg"></img>
+										  <p>'.$row["descPhotos"].'</p>
+										  <form action="includes/delpic.inc.php" method="post">	
+								          <button type="submit" value = "'.$row["idPhotos"].'" name="delpic">Delete photo</button>
+										  </form>
+										  <form action="includes/upcomment.inc.php" method="post">	
+										  <input type="text" name="commid" placeholder="Comment..."><br><br>
+									      <button type="submit" value = "'.$row["idPhotos"].'" name="commbutton">Comment</button>
+									      </form>';	
 								}
-
-									
-									echo '<p>'.$row["comment"].'</p>';
-
-								$tmpphoto = $row["imgFullnamePhotos"];
-							
-
-							
+								echo '<p>'.$row["comment"].'</p>';
+								$tmpphoto = $row["imgFullnamePhotos"];									
 						}
 					}
 					?>
