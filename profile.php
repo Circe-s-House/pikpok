@@ -98,7 +98,8 @@
 	
 <script src="scripts/dropdownbutton.js"></script>	
 <script src="scripts/delpic.js"></script>
-	
+<div class="foot">
 <?php
 	require "footer.php";
 ?>
+</div>
