@@ -9,6 +9,7 @@
 				<h1>SocialHub</h1>
 				<h2>or SocialPub? Either way grab a <i class="fas fa-beer"></i> and enjoy!</h2>
 				<div class="container">
+				
 					<?php
 						include_once 'includes/dbh.inc.php';
 
@@ -20,16 +21,19 @@
 							mysqli_stmt_execute($stmt);
 							$result = mysqli_stmt_get_result($stmt);
 							$tmpphoto = "";
+							?>
+							<div class="under">
+							<?php
 							while($row = mysqli_fetch_assoc($result)) {
 								if($tmpphoto !== $row["imgFullnamePhotos"]){
 									echo '<br>';
 									echo '<hr>';
 									echo '<br>';
 									echo '<a href = "#">
+										<h2>Username: '.$_SESSION['userUid'].'</h2>
+										<p>'.$row["descPhotos"].'</p>
 										<div class="myimage" style="background-image: url(image/'.$row["imgFullnamePhotos"].');"></div>
 										<img src="image/'.$row["imgFullnamePhotos"].'"jpg"></img>
-										<h2>'.$row["descPhotos"].'</h2>
-										<p></p>
 										</a>';
 										if(isset($_SESSION['userId'])){
 											echo '<form action="includes/likes.inc.php" method="post">	
@@ -50,13 +54,18 @@
 
 								$tmpphoto = $row["imgFullnamePhotos"];
 							}
+
 							
+							?>
+							</div>
+							<?php
+
 						}	
-					?>
-					<br><br><br><br><br>
+					?>	
 				</div>
 			</div>
-		</section>		
+		</section>
+<br><br><br><br><br>	
 </main>
 	
 	

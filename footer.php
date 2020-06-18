@@ -17,7 +17,7 @@
 				}
 		?>
 		
-		<p>Copyright &copy; Team fuck the police 2020</p>
+		<p>Copyright &copy; SocialHub team 2020</p>
 		
 	</footer>
 

@@ -63,13 +63,14 @@
 							</a>';
 							echo '</div>';
 						}
+						echo '<form action="includes/logout.inc.php" method="post">					
+							<button type="submit" name="logout-dubmit">Logout</button>
+							</form>';
 					}
 					else{
 						echo '<a href = profile.php><i class="fas fa-user"></i></a>';
 					}
-					echo '<form action="includes/logout.inc.php" method="post">					
-							<button type="submit" name="logout-dubmit">Logout</button>
-							</form>';
+
 				} 
 				else{
 					echo '<a href = index.php><i class="fas fa-user"></i></a>';
