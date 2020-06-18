@@ -22,6 +22,9 @@
 							$tmpphoto = "";
 							while($row = mysqli_fetch_assoc($result)) {
 								if($tmpphoto !== $row["imgFullnamePhotos"]){
+									echo '<br>';
+									echo '<hr>';
+									echo '<br>';
 									echo '<a href = "#">
 										<div class="myimage" style="background-image: url(image/'.$row["imgFullnamePhotos"].');"></div>
 										<img src="image/'.$row["imgFullnamePhotos"].'"jpg"></img>
@@ -47,6 +50,7 @@
 
 								$tmpphoto = $row["imgFullnamePhotos"];
 							}
+							
 						}	
 					?>
 					<br><br><br><br><br>
