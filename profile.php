@@ -54,6 +54,7 @@
 						$tmpphoto = "";
 						while($row = mysqli_fetch_assoc($result)) {
 							$_SESSION['photo'] = $row["imgFullnamePhotos"];
+
 			
 							if($tmpphoto !== $row["imgFullnamePhotos"]){
 								echo '<div class="under-photo">
