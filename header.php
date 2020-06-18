@@ -48,6 +48,7 @@
 				
 				if(isset($_SESSION['userId'])){
 					
+					
 					$userUID = $_SESSION['userId'];
 					$sql = "SELECT profPic FROM users WHERE idUsers= $userUID;";
 					$result = mysqli_query($conn, $sql);
